@@ -30,7 +30,20 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
-
-cal = calendar.Calendar(firstweekday=0)
-
-print(cal.iterweekdays())
+a = None
+while a == None:
+  a = input().split(',')
+  try:
+    if a[0] == "":
+      current = datetime.today()
+      month = calendar.TextCalendar().prmonth(current.year, current.month)
+      print(month)
+    elif len(a) == 1 and a[0] != "":
+      current = datetime.today()
+      month = calendar.TextCalendar().prmonth(current.year, int(a[0]))
+      print(month)
+    elif len(a) == 2:
+      month = calendar.TextCalendar().prmonth(int(a[0]), int(a[1]))
+      print(month)
+  except ValueError:
+    print('Please enter only numbers in the form "number" or "number, number"')
