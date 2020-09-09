@@ -30,3 +30,7 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+cal = calendar.Calendar(firstweekday=0)
+
+print(cal.iterweekdays())
